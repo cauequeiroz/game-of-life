@@ -1,18 +1,58 @@
+/* ---------------------------------------------
+    Reset
+   --------------------------------------------- */
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---------------------------------------------
+    Page
+   --------------------------------------------- */
 body {
     background: url(../img/bg.png) repeat;
-    color: #333;
 }
 
 .container {
     width: 960px;
-    height: 600px;
-    border: 1px solid #ccc;
+    height: 612px;
     margin: 25px auto 0;
 }
 
+/* ---------------------------------------------
+    Grid
+   --------------------------------------------- */
 .grid-container {
-    width: 600px;
-    height: 600px;
-    background: #fff;
+    width: 612px;
+    height: 612px;
+    border: 2px solid #ccc;
+    padding: 4px;
     float: right;
+}
+
+.row {
+    clear: both;
+}
+
+.col {
+    width: 30px;
+    height: 30px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    float: left;
+    transition: all .1s ease;
+    cursor: pointer;
+}
+.col:first-child {
+    border-left: 1px solid #ccc;
+}
+.row:first-child .col {
+    border-top: 1px solid #ccc;
+}
+
+.col:hover, .live {
+    background: #2980b9;
 }
