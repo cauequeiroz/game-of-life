@@ -53,6 +53,7 @@ body {
     border-top: 1px solid #ccc;
 }
 
-.col:hover, .live {
-    background: #2980b9;
-}
+.col:hover  { background: #27ae60; }
+.live       { background: #2980b9; }
+.live:hover { background: #c0392b; }
+
