@@ -1,18 +1,18 @@
 body {
-	background: url(../img/bg.png) repeat;
-	color: #333;
+    background: url(../img/bg.png) repeat;
+    color: #333;
 }
 
 .container {
-	width: 960px;
-	height: 600px;
-	border: 1px solid #ccc;
-	margin: 25px auto 0;
+    width: 960px;
+    height: 600px;
+    border: 1px solid #ccc;
+    margin: 25px auto 0;
 }
 
 .grid-container {
-	width: 600px;
-	height: 600px;
-	background: #fff;
-	float: right;
+    width: 600px;
+    height: 600px;
+    background: #fff;
+    float: right;
 }
