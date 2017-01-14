@@ -18,3 +18,10 @@ var App = {
 };
 
 App.init();
+
+/*
+- read dom and create array
+- read array, check each neighboor and generate next array
+- update array with next array
+- read array and update dom
+*/
