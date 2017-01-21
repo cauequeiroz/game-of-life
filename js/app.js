@@ -22,6 +22,14 @@ var App = {
         App.status = 'running';
 
         App.generateBoard();
+        
+        var run = setInterval(function() {
+            if ( App.status !== 'running' ) {
+                clearInterval(run);
+            }
+
+            App.generateNextBoard();
+        }, 200);
     },
 
     pause: function() {
