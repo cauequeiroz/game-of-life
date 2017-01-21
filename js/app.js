@@ -64,9 +64,28 @@ var App = {
     },
 
     checkNeighbors: function(row, col) {
-        var board = App.board;
+        var board = App.board,
+            cell  = board[row][col],
+            neighbors = [];
 
-        return board[row][col]==='1' ? false : true;
+        neighbors.push(
+            board[row-1][col-1],
+            board[row-1][col],
+            board[row-1][col+1],
+            board[row][col-1],
+            board[row][col+1],
+            board[row+1][col-1],
+            board[row+1][col],
+            board[row+1][col+1]
+        );
+
+        neighbors = neighbors.filter(function(elem) {
+            return elem === '1';
+        }).length;
+
+        return (cell === '1')
+            ? (neighbors < 2 || neighbors > 3) ? false : true
+            : (neighbors === 3);
     }
 
 };
