@@ -6,8 +6,6 @@ var App = {
 
     board: [],
 
-    nextBoard: [],
-
     init: function() {
         App.$grid.addEventListener('click', App.draw, false);
     },
@@ -21,7 +19,13 @@ var App = {
     },
 
     start: function() {
+        App.status = 'running';
+
         App.generateBoard();
+    },
+
+    pause: function() {
+        App.status = 'pause';
     },
 
     generateBoard: function() {
@@ -42,7 +46,6 @@ var App = {
         }
 
         App.board = board;
-        console.table(App.board);
     },
 
     generateNextBoard: function() {
@@ -59,8 +62,8 @@ var App = {
             line = [];
         }
 
-        App.nextBoard = nextBoard;
-        console.table(App.nextBoard);
+        App.board = nextBoard;
+        App.updateGrid();
     },
 
     checkNeighbors: function(row, col) {
@@ -103,6 +106,29 @@ var App = {
             };
 
         return board[row[y]] !== undefined ? board[row[y]][col[x]] : '0';
+    },
+
+    updateGrid: function() {
+        var grid  = App.$grid,
+            board = App.board;
+
+        for ( var i=0; i<20; i++ ) {
+            for ( var j=0; j<20; j++ ) {
+                var elem = grid.querySelectorAll('.row')[i]
+                               .querySelectorAll('.col')[j]
+                               .classList;
+
+                if ( board[i][j] === '1' ) {
+
+                    if ( !elem.contains('live') ) elem.add('live');
+
+                } else {
+
+                    if ( elem.contains('live') ) elem.remove('live');
+
+                }
+            }
+        }
     }
 
 };
@@ -110,7 +136,6 @@ var App = {
 App.init();
 
 /*
-- read array, check each neighboor and generate next array
 - update array with next array
 - read array and update dom
 */
