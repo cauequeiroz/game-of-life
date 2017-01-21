@@ -2,6 +2,8 @@ var App = {
 
     allowUser: true,
 
+    status: 'pause',
+
     $grid: document.querySelector('.grid-container'),
 
     board: [],
@@ -20,6 +22,7 @@ var App = {
 
     start: function() {
         App.status = 'running';
+        App.allowUser = false;
 
         App.generateBoard();
         
@@ -34,6 +37,7 @@ var App = {
 
     pause: function() {
         App.status = 'pause';
+        App.allowUser = true;
     },
 
     generateBoard: function() {
@@ -68,6 +72,11 @@ var App = {
 
             nextBoard.push(line);
             line = [];
+        }
+
+        if ( App.compareBoards(board, nextBoard) ) {
+            App.pause();
+            return false;
         }
 
         App.board = nextBoard;
@@ -116,6 +125,10 @@ var App = {
         return board[row[y]] !== undefined ? board[row[y]][col[x]] : '0';
     },
 
+    compareBoards: function(a, b) {
+        return JSON.stringify(a) === JSON.stringify(b);
+    },
+
     updateGrid: function() {
         var grid  = App.$grid,
             board = App.board;
@@ -142,8 +155,3 @@ var App = {
 };
 
 App.init();
-
-/*
-- update array with next array
-- read array and update dom
-*/
