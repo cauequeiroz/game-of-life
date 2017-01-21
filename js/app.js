@@ -66,17 +66,18 @@ var App = {
     checkNeighbors: function(row, col) {
         var board = App.board,
             cell  = board[row][col],
+            ref   = [row, col];
             neighbors = [];
 
         neighbors.push(
-            board[row-1][col-1],
-            board[row-1][col],
-            board[row-1][col+1],
-            board[row][col-1],
-            board[row][col+1],
-            board[row+1][col-1],
-            board[row+1][col],
-            board[row+1][col+1]
+            App.getNeighbor(ref, 'top', 'left'),
+            App.getNeighbor(ref, 'top', 'center'),
+            App.getNeighbor(ref, 'top', 'right'),
+            App.getNeighbor(ref, 'center', 'left'),
+            App.getNeighbor(ref, 'center', 'right'),
+            App.getNeighbor(ref, 'bottom', 'left'),
+            App.getNeighbor(ref, 'bottom', 'center'),
+            App.getNeighbor(ref, 'bottom', 'right')
         );
 
         neighbors = neighbors.filter(function(elem) {
@@ -86,6 +87,22 @@ var App = {
         return (cell === '1')
             ? (neighbors < 2 || neighbors > 3) ? false : true
             : (neighbors === 3);
+    },
+
+    getNeighbor: function(ref, y, x) {
+        var board = App.board,
+            row = {
+                'top': ref[0]-1,
+                'center': ref[0],
+                'bottom': ref[0]+1
+            },
+            col = {
+                'left': ref[1]-1,
+                'center': ref[1],
+                'right': ref[1]+1
+            };
+
+        return board[row[y]] !== undefined ? board[row[y]][col[x]] : '0';
     }
 
 };
