@@ -94,7 +94,3 @@ body {
 .info p a:hover {
     color: #ccc;
 }
-.info p:last-child {
-    text-align: right;
-    margin-top: 200px;
-}
