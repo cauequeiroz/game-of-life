@@ -96,4 +96,5 @@ body {
 }
 .info p:last-child {
     text-align: right;
+    margin-top: 200px;
 }
