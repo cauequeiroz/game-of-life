@@ -63,4 +63,37 @@ body {
 .info {
     float: left;
     width: 340px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.info h1 {
+    font-family: 'Bungee Shade', cursive;
+    font-size: 40px;
+    line-height: 1;
+    color: #7f8c8d;
+    padding-bottom: 25px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+.info h1 span {
+    margin: 0 -10px;
+}
+
+.info p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #7f8c8d;
+}
+.info p a {
+    color: inherit;
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 1px solid;
+    padding-bottom: 2px;
+}
+.info p a:hover {
+    color: #ccc;
+}
+.info p:last-child {
+    text-align: right;
 }
