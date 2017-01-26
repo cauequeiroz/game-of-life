@@ -94,3 +94,29 @@ body {
 .info p a:hover {
     color: #ccc;
 }
+
+.controls {
+    margin: 40px 0;
+}
+.controls .btn {
+    color: #7f8c8d;
+    width: 80px;
+    border-radius: 2px;
+    border: 1px solid #7f8c8d;
+    background: none;
+    padding: 10px 0;
+    margin-right: 5px;
+    transition: all .1s ease;
+    text-align: center;
+    font: inherit;
+    outline: none;
+}
+.controls .btn:hover:not(.disabled) {
+    background: #7f8c8d;
+    color: white;
+    cursor: pointer;
+}
+.controls .btn.disabled {
+    border-color: #ccc;
+    color: #ccc;
+}
