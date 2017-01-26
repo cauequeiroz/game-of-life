@@ -41,6 +41,7 @@ var App = {
     start: function() {
         App.status = 'running';
         App.allowUser = false;
+        App.$controls.querySelector('.pause').classList.remove('disabled');
 
         App.generateBoard();
         
@@ -54,8 +55,14 @@ var App = {
     },
 
     pause: function() {
+        if ( App.status === 'finish' ) {
+            App.$controls.querySelector('.pause').classList.add('disabled');
+        }
+
+        App.$controls.querySelector('.play').classList.remove('disabled');
+
         App.status = 'pause';
-        App.allowUser = true;
+        App.allowUser = true;        
     },
 
     reset: function() {
@@ -97,6 +104,7 @@ var App = {
         }
 
         if ( App.compareBoards(board, nextBoard) ) {
+            App.status = 'finish';
             App.pause();
             return false;
         }
