@@ -23,7 +23,7 @@ var App = {
         if ( !App.allowUser || !elem.contains('col') ) return;        
 
         elem.toggle('live');
-        App.$controls.querySelector('.reset').classList.remove('disabled');
+        App.$controls.querySelector('.clear').classList.remove('disabled');
         App.$controls.querySelector('.play').classList.remove('disabled');
     },
 
@@ -35,7 +35,7 @@ var App = {
         var actions = {
             'play': App.start,
             'pause': App.pause,
-            'reset': App.reset
+            'clear': App.clear
         };
 
         actions[elem.item(1)] ();
@@ -46,7 +46,7 @@ var App = {
         App.status = 'running';
         App.allowUser = false;
         App.$controls.querySelector('.pause').classList.remove('disabled');
-        App.$controls.querySelector('.reset').classList.add('disabled');
+        App.$controls.querySelector('.clear').classList.add('disabled');
 
         App.generateBoard();
         
@@ -65,13 +65,13 @@ var App = {
         }
 
         App.$controls.querySelector('.play').classList.remove('disabled');
-        App.$controls.querySelector('.reset').classList.remove('disabled');
+        App.$controls.querySelector('.clear').classList.remove('disabled');
 
         App.status = 'pause';
         App.allowUser = true;        
     },
 
-    reset: function() {
+    clear: function() {
         App.board = App.board.map(function(row) {
             return row.map(function(item) {
                 return '0';

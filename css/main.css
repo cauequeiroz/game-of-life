@@ -79,6 +79,18 @@ body {
     margin: 0 -10px;
 }
 
+.info ul {
+    list-style: none;
+}
+.info ul li {
+    font-size: 16px;
+    color: #7f8c8d;
+    margin-bottom: 5px;
+}
+.info ul li:last-child {
+    margin-bottom: 10px;
+}
+
 .info p {
     font-size: 16px;
     margin-bottom: 10px;
@@ -96,7 +108,7 @@ body {
 }
 
 .controls {
-    margin: 40px 0;
+    margin: 20px 0;
 }
 .controls .btn {
     color: #7f8c8d;

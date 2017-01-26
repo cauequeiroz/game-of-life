@@ -12,16 +12,23 @@
         <header class="info">
             <h1>Game <span>of</span> Life</h1>
 
-            <p>O jogo da vida é um autómato celular desenvolvido pelo matemático britânico John Horton Conway em 1970. É o exemplo mais bem conhecido de <strong>autômato celular</strong>.<p>
+            <p>O jogo da vida é um autômato celular desenvolvido pelo matemático britânico John Horton Conway em 1970. O jogo foi criado de modo a reproduzir, através de regras simples, as alterações e mudanças em grupos de seres vivos, tendo aplicações em diversas áreas da ciência.<p>
 
-            <p>O jogo foi criado de modo a reproduzir, através de regras simples, as alterações e mudanças em grupos de seres vivos, tendo aplicações em diversas áreas da ciência.</p>
+            <p>As regras são simples e elegantes:</p>
 
-            <p>As regras definidas são aplicadas a cada nova "geração"; assim, a partir de uma imagem em um tabuleiro bi-dimensional definida pelo jogador, percebem-se mudanças muitas vezes inesperadas e belas a cada nova geração, variando de padrões fixos a caóticos. - <a href="https://pt.wikipedia.org/wiki/Jogo_da_vida" target="_blank">Wikipédia</a></p>
+            <ul>
+                <li>1. Qualquer célula viva com menos de dois vizinhos vivos morre de solidão.</li>
+                <li>2. Qualquer célula viva com mais de três vizinhos vivos morre de superpopulação.</li>
+                <li>3. Qualquer célula com exatamente três vizinhos vivos se torna uma célula viva.</li>
+                <li>4. Qualquer célula com dois vizinhos vivos continua no mesmo estado para a próxima geração.</li>
+            </ul>
+
+            <p>Saiba mais em: <a href="https://pt.wikipedia.org/wiki/Jogo_da_vida" target="_blank">Wikipédia</a></p>
     
             <section class="controls">
                 <button class="btn play">Play</button>
                 <button class="btn pause disabled">Pause</button>
-                <button class="btn reset">Reset</button>
+                <button class="btn clear">Clear</button>
             </section>
 
             <p>Desenvolvido por <a href="http://cauequeiroz.com.br/">Caue Queiroz</a>.</p>
