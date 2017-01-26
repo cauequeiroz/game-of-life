@@ -6,10 +6,13 @@ var App = {
 
     $grid: document.querySelector('.grid-container'),
 
+    $controls: document.querySelector('.controls'),
+
     board: [],
 
     init: function() {
         App.$grid.addEventListener('click', App.draw, false);
+        App.$controls.addEventListener('click', App.userControl, false);
     },
 
     draw: function(e) {
@@ -18,6 +21,21 @@ var App = {
         if ( !App.allowUser || !elem.contains('col') ) return;        
 
         elem.toggle('live');
+    },
+
+    userControl: function(e) {
+        var elem = e.target.classList;
+
+        if ( elem.contains('disabled') ) return;
+
+        var actions = {
+            'play': App.start,
+            'pause': App.pause,
+            'reset': App.reset
+        };
+
+        actions[elem.item(1)] ();
+        elem.add('disabled');
     },
 
     start: function() {
@@ -38,6 +56,10 @@ var App = {
     pause: function() {
         App.status = 'pause';
         App.allowUser = true;
+    },
+
+    reset: function() {
+        
     },
 
     generateBoard: function() {
