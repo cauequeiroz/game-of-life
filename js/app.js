@@ -13,6 +13,8 @@ var App = {
     init: function() {
         App.$grid.addEventListener('click', App.draw, false);
         App.$controls.addEventListener('click', App.userControl, false);
+
+        App.generateBoard();
     },
 
     draw: function(e) {
@@ -21,6 +23,8 @@ var App = {
         if ( !App.allowUser || !elem.contains('col') ) return;        
 
         elem.toggle('live');
+        App.$controls.querySelector('.reset').classList.remove('disabled');
+        App.$controls.querySelector('.play').classList.remove('disabled');
     },
 
     userControl: function(e) {
@@ -42,6 +46,7 @@ var App = {
         App.status = 'running';
         App.allowUser = false;
         App.$controls.querySelector('.pause').classList.remove('disabled');
+        App.$controls.querySelector('.reset').classList.add('disabled');
 
         App.generateBoard();
         
@@ -60,13 +65,21 @@ var App = {
         }
 
         App.$controls.querySelector('.play').classList.remove('disabled');
+        App.$controls.querySelector('.reset').classList.remove('disabled');
 
         App.status = 'pause';
         App.allowUser = true;        
     },
 
     reset: function() {
-        
+        App.board = App.board.map(function(row) {
+            return row.map(function(item) {
+                return '0';
+            });
+        });
+
+        App.updateGrid();
+        App.$controls.querySelector('.play').classList.add('disabled');
     },
 
     generateBoard: function() {
