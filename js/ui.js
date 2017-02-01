@@ -32,5 +32,36 @@ var UI = {
 
         actions[elem.item(1)] ();
         elem.add('disabled');
+    },
+
+    enableButton: function(type) {
+        UI.$controls.querySelector('.'+type+'').classList.add('disabled');
+    },
+
+    disableButton: function(type) {
+        UI.$controls.querySelector('.'+type+'').classList.remove('disabled');
+    },
+
+    updateGrid: function() {
+        var grid  = UI.$grid,
+            board = App.board;
+
+        for ( var i=0; i<20; i++ ) {
+            for ( var j=0; j<20; j++ ) {
+                var elem = grid.querySelectorAll('.row')[i]
+                               .querySelectorAll('.col')[j]
+                               .classList;
+
+                if ( board[i][j] === '1' ) {
+
+                    if ( !elem.contains('live') ) elem.add('live');
+
+                } else {
+
+                    if ( elem.contains('live') ) elem.remove('live');
+
+                }
+            }
+        }
     }
 };

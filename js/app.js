@@ -49,7 +49,7 @@ var App = {
             });
         });
 
-        App.updateGrid();
+        UI.updateGrid();
         UI.$controls.querySelector('.play').classList.add('disabled');
     },
 
@@ -94,7 +94,7 @@ var App = {
         }
 
         App.board = nextBoard;
-        App.updateGrid();
+        UI.updateGrid();
     },
 
     checkNeighbors: function(row, col) {
@@ -141,29 +141,6 @@ var App = {
 
     compareBoards: function(a, b) {
         return JSON.stringify(a) === JSON.stringify(b);
-    },
-
-    updateGrid: function() {
-        var grid  = UI.$grid,
-            board = App.board;
-
-        for ( var i=0; i<20; i++ ) {
-            for ( var j=0; j<20; j++ ) {
-                var elem = grid.querySelectorAll('.row')[i]
-                               .querySelectorAll('.col')[j]
-                               .classList;
-
-                if ( board[i][j] === '1' ) {
-
-                    if ( !elem.contains('live') ) elem.add('live');
-
-                } else {
-
-                    if ( elem.contains('live') ) elem.remove('live');
-
-                }
-            }
-        }
     }
 
 };
