@@ -4,49 +4,20 @@ var App = {
 
     status: 'pause',
 
-    $grid: document.querySelector('.grid-container'),
-
-    $controls: document.querySelector('.controls'),
-
     board: [],
 
     init: function() {
-        App.$grid.addEventListener('click', App.draw, false);
-        App.$controls.addEventListener('click', App.userControl, false);
+        UI.init();
 
         App.generateBoard();
-    },
-
-    draw: function(e) {
-        var elem = e.target.classList;
-
-        if ( !App.allowUser || !elem.contains('col') ) return;        
-
-        elem.toggle('live');
-        App.$controls.querySelector('.clear').classList.remove('disabled');
-        App.$controls.querySelector('.play').classList.remove('disabled');
-    },
-
-    userControl: function(e) {
-        var elem = e.target.classList;
-
-        if ( elem.contains('disabled') ) return;
-
-        var actions = {
-            'play': App.start,
-            'pause': App.pause,
-            'clear': App.clear
-        };
-
-        actions[elem.item(1)] ();
-        elem.add('disabled');
     },
 
     start: function() {
         App.status = 'running';
         App.allowUser = false;
-        App.$controls.querySelector('.pause').classList.remove('disabled');
-        App.$controls.querySelector('.clear').classList.add('disabled');
+        
+        UI.$controls.querySelector('.pause').classList.remove('disabled');
+        UI.$controls.querySelector('.clear').classList.add('disabled');
 
         App.generateBoard();
         
@@ -61,11 +32,11 @@ var App = {
 
     pause: function() {
         if ( App.status === 'finish' ) {
-            App.$controls.querySelector('.pause').classList.add('disabled');
+            UI.$controls.querySelector('.pause').classList.add('disabled');
         }
 
-        App.$controls.querySelector('.play').classList.remove('disabled');
-        App.$controls.querySelector('.clear').classList.remove('disabled');
+        UI.$controls.querySelector('.play').classList.remove('disabled');
+        UI.$controls.querySelector('.clear').classList.remove('disabled');
 
         App.status = 'pause';
         App.allowUser = true;        
@@ -79,11 +50,11 @@ var App = {
         });
 
         App.updateGrid();
-        App.$controls.querySelector('.play').classList.add('disabled');
+        UI.$controls.querySelector('.play').classList.add('disabled');
     },
 
     generateBoard: function() {
-        var grid  = App.$grid,
+        var grid  = UI.$grid,
             board = [];
             line  = [];
 
@@ -173,7 +144,7 @@ var App = {
     },
 
     updateGrid: function() {
-        var grid  = App.$grid,
+        var grid  = UI.$grid,
             board = App.board;
 
         for ( var i=0; i<20; i++ ) {
