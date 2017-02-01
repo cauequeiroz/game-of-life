@@ -15,8 +15,9 @@ var UI = {
         if ( !App.allowUser || !elem.contains('col') ) return;        
 
         elem.toggle('live');
-        UI.$controls.querySelector('.clear').classList.remove('disabled');
-        UI.$controls.querySelector('.play').classList.remove('disabled');
+
+        UI.enableButton('clear');
+        UI.enableButton('play');
     },
 
     userControl: function(e) {
@@ -35,11 +36,11 @@ var UI = {
     },
 
     enableButton: function(type) {
-        UI.$controls.querySelector('.'+type+'').classList.add('disabled');
+        UI.$controls.querySelector('.'+type+'').classList.remove('disabled');
     },
 
     disableButton: function(type) {
-        UI.$controls.querySelector('.'+type+'').classList.remove('disabled');
+        UI.$controls.querySelector('.'+type+'').classList.add('disabled');
     },
 
     updateGrid: function() {

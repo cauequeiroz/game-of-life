@@ -16,8 +16,8 @@ var App = {
         App.status = 'running';
         App.allowUser = false;
         
-        UI.$controls.querySelector('.pause').classList.remove('disabled');
-        UI.$controls.querySelector('.clear').classList.add('disabled');
+        UI.enableButton('pause');
+        UI.disableButton('clear');
 
         App.generateBoard();
         
@@ -32,11 +32,11 @@ var App = {
 
     pause: function() {
         if ( App.status === 'finish' ) {
-            UI.$controls.querySelector('.pause').classList.add('disabled');
+            UI.disableButton('pause');
         }
 
-        UI.$controls.querySelector('.play').classList.remove('disabled');
-        UI.$controls.querySelector('.clear').classList.remove('disabled');
+        UI.enableButton('play');
+        UI.enableButton('clear');
 
         App.status = 'pause';
         App.allowUser = true;        
@@ -50,7 +50,7 @@ var App = {
         });
 
         UI.updateGrid();
-        UI.$controls.querySelector('.play').classList.add('disabled');
+        UI.disableButton('play');
     },
 
     generateBoard: function() {
