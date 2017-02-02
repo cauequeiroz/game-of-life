@@ -1,3 +1,21 @@
+/*==========================================================
+
+    Game of Life
+    A cellular automaton invented by John Conway.
+
+    Developed by Caue Queiroz <cauenqueiroz@gmail.com>
+
+    - App.js
+    Control the general flow of the application.
+    
+    - Engine.js
+    Control the core logic and the rules of the algorithm.
+
+    - UI.js
+    Control the UI (buttons and grid) and events.
+
+========================================================= */
+
 var App = {
 
     allowUser: true,

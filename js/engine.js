@@ -1,3 +1,9 @@
+/*==========================================================
+
+    Engine.js
+    Control the core logic and the rules of the algorithm.
+
+========================================================= */
 var Engine = {
 
     board: [],

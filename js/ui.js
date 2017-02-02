@@ -1,3 +1,9 @@
+/*==========================================================
+
+    UI.js
+    Control the UI (buttons and grid) and events.
+
+========================================================= */
 var UI = {
     
     $grid: document.querySelector('.grid-container'),
