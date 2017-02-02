@@ -5,8 +5,8 @@ var UI = {
     $controls: document.querySelector('.controls'),
 
     init: function() {
-        UI.$grid.addEventListener('click', UI.draw, false);
-        UI.$controls.addEventListener('click', UI.userControl, false);
+        this.$grid.addEventListener('click', UI.draw, false);
+        this.$controls.addEventListener('click', UI.userControl, false);
     },
 
     draw: function(e) {
@@ -36,16 +36,16 @@ var UI = {
     },
 
     enableButton: function(type) {
-        UI.$controls.querySelector('.'+type+'').classList.remove('disabled');
+        this.$controls.querySelector('.'+type+'').classList.remove('disabled');
     },
 
     disableButton: function(type) {
-        UI.$controls.querySelector('.'+type+'').classList.add('disabled');
+        this.$controls.querySelector('.'+type+'').classList.add('disabled');
     },
 
     updateGrid: function() {
-        var grid  = UI.$grid,
-            board = App.board;
+        var grid  = this.$grid,
+            board = Engine.getBoard();
 
         for ( var i=0; i<20; i++ ) {
             for ( var j=0; j<20; j++ ) {
